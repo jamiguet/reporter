@@ -1,0 +1,28 @@
+
+** TODO Daily check up 
+*** Weight [[https://www.fourmilab.ch/cgi-bin/HackDiet][HackDiet]]: 
+*** Routines [0/12]
+- [ ] Shower
+- [ ] Writing [[http://750words.com][750Words]]
+- [ ] Meditation ()
+- [ ] Medication morning
+- [ ] Teeth morning
+- [ ] Cycling
+- [ ] Swimming ()
+- [ ] Gym ()
+- [ ] Reading
+- [ ] Medication evening
+- [ ] Teeth evening
+- [ ] Fruit
+  
+** Work (For time tracking)
+
+** Sleep (For time tracking)
+** Expenses
+   | amount | concept |
+   |--------+---------|
+   |        |         |
+   |--------+---------|
+   |      0 | Total   |
+   #+TBLFM: @3$1=vsum(@2$1..@-1$1)
+

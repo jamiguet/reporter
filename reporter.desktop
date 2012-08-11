@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Reporter
+Comment=Daily logger for days activities
+Exec=report.sh
+Icon=~/Dropbox/Book/journal/reporter_icon.jpg
+Terminal=false
+Type=Application
+StartupNotify=true
