@@ -25,7 +25,7 @@ source ~/.reporter.rc
 #echo $journaldir
 #echo $orgdir
 
-today=`date --iso`
+today=`date --iso $@`
 weekday=`date +%A`
 day=`date +%d`
 month=`date -d yesterday +%m`
@@ -40,10 +40,6 @@ if [ ! -f $journaldir/$filename ]; then
     echo "* Day: " $timestamp  > $journaldir/$filename
     echo "DEADLINE: <" $timestamp  ">" >> $journaldir/$filename 
     cat $journaldir/template.org >> $journaldir/$filename
-    if [ $orgdir != "NO_PATH" ]; then
-	rm $orgdir/today.org
-	ln -s $journaldir/$filename $orgdir/today.org
-    fi
 
     if [ $day -eq 01 ]; then
 	echo "New month archiving files"
@@ -51,6 +47,11 @@ if [ ! -f $journaldir/$filename ]; then
 	rm $journaldir/*-$month-*.org
 	# TODO add here creation of summary of monthly expenses file
     fi
+fi
+
+if [ $orgdir != "NO_PATH" ]; then
+    rm $orgdir/today.org
+    ln -s $journaldir/$filename $orgdir/today.org
 fi
 
 # After all the setup invoke emacs to edit the file
