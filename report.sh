@@ -31,7 +31,7 @@ day=`date +%d`
 month=`date -d yesterday +%m`
 monthName=`date -d yesterday +%B-%Y`
 filename=$today.org
-timestamp=`date  "+%Y-%m-%d %a"`
+timestamp=`date  "+%Y-%m-%d %a" $@`
 
 
 # check if today has already been created
@@ -54,10 +54,14 @@ if [ $orgdir != "NO_PATH" ]; then
     ln -s $journaldir/$filename $orgdir/today.org
 fi
 
+#if the emacs server is running call that instead of starting a new emacs
+
+EMACS="emacs"
+
 # After all the setup invoke emacs to edit the file
 echo "Starting emacs for editing"
 if [ $orgdir != "NO_PATH" ]; then
-    emacs $orgdir/today.org &
+    $EMACS $orgdir/today.org &
  else
-    emacs $journaldir/$filename &
+    $EMACS $journaldir/$filename &
 fi
